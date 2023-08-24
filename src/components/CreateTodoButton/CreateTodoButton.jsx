@@ -1,5 +1,5 @@
 // Dependencies
-import '../styles/CreateTodoButton.css'; // Import CSS Styles from external file
+import './CreateTodoButton.css'; // Import CSS Styles from external file
 
 // Component: CreateTodoButton
 function CreateTodoButton() {

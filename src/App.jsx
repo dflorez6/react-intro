@@ -4,11 +4,11 @@ import './styles/App.css';
 import logo from './platzi.webp';
 
 // Components
-import { TodoCounter } from './components/TodoCounter';
-import { TodoSearch } from './components/TodoSearch';
-import { TodoList } from './components/TodoList';
-import { TodoItem } from './components/TodoItem';
-import { CreateTodoButton } from './components/CreateTodoButton';
+import { TodoCounter } from './components/TodoCounter/TodoCounter';
+import { TodoSearch } from './components/TodoSearch/TodoSearch';
+import { TodoList } from './components/TodoList/TodoList';
+import { TodoItem } from './components/TodoItem/TodoItem';
+import { CreateTodoButton } from './components/CreateTodoButton/CreateTodoButton';
 
 // Example of creating a deafault Array to pass info to a Component (TodoItem) and allow React to render them
 const defaultToDos = [

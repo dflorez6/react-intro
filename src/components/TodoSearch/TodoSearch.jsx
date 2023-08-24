@@ -1,5 +1,5 @@
 // Dependencies
-import '../styles/TodoSearch.css'; // Import CSS Styles from external file
+import './TodoSearch.css'; // Import CSS Styles from external file
 
 // Component: TodoSearch
 function TodoSearch() {

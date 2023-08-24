@@ -1,5 +1,5 @@
 // Dependencies
-import '../styles/TodoItem.css'; // Import CSS Styles from external file
+import './TodoItem.css'; // Import CSS Styles from external file
 
 // Two ways of passing props:
 // 1. function ComponentName(props) {} // prop 'object'. Need to call prop.nameOfProperty for ex prop.total
