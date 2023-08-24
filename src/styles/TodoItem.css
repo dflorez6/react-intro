@@ -1,0 +1,44 @@
+/* Component: TodoItem (li) */
+.todo-item {
+    align-items: center;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    margin: 0 0 1rem;
+    padding: 1rem;
+}
+
+.todo-item-check {
+    color: black;
+    cursor: pointer;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.todo-item-check-active {
+    color: #4CAF50;
+}
+
+.todo-item-content {
+    flex-grow: 1;
+    font-size: 1.1rem;
+    margin: 0;
+    padding: 0 1rem;
+    text-align: left;
+}
+
+.todo-item-content-complete {
+    text-decoration: line-through;
+}
+
+.todo-item-delete {
+    color: black;
+    cursor: pointer;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.todo-item-delete:hover {
+    color: red;
+}

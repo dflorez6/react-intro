@@ -1,0 +1,30 @@
+/* Component: CreateTodoButton */
+.create-todo {
+    align-items: center;
+    background-color: #61DAFA;
+    border: 0;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    font-size: 2rem;
+    font-weight: bold;
+    height: 50px;
+    justify-content: center;    
+    width: 50px;
+
+    position: fixed;
+    right: 20%;
+    top: 10.5%;
+
+    /* TODO: used to make animation
+    transform: rotate(0);
+    transition: .3s ease;
+    */
+}
+
+/* TODO: used to make animation
+.create-todo:hover {
+    transform: rotate(224deg);
+}
+*/
