@@ -3,17 +3,9 @@ import React from 'react';
 import './TodoSearch.css'; // Import CSS Styles from external file
 
 // Component: TodoSearch
-function TodoSearch() {
-
-    // React State
-    // const [state, setState] = React.useState(initalState); // 
-    // State is immutable in React, so to work with it, we must declare a const array with two values: [stateName, stateUpdater]
-    // stateUpdater is a function and must be used like so: stateUpdater(NEW_STATE_VALUE)
-    // On the right side, we call the function React.useState(initalState), inside () declare what the inital state value should be
-    const [searchValue, setsearchValue] = React.useState('');
-
-    console.log('stored searchValue: ' + searchValue);
-
+// State was move to the parent component 'App', so now from parent we are sending as props the values
+// to work with the state in this children component
+function TodoSearch({searchValue, setsearchValue}) {
     return(
         <div className='form-group'>
             <input 
