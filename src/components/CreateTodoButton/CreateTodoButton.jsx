@@ -1,11 +1,12 @@
 // Dependencies
+import React from 'react';
 import './CreateTodoButton.css'; // Import CSS Styles from external file
 
 // Component: CreateTodoButton
 function CreateTodoButton() {
     return(
         <button 
-            className='create-todo'
+            className='create-todo'            
             onClick={
                 // JS code must be encapsulated inside a function
                 (event) => {
