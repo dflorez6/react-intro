@@ -1,7 +1,7 @@
 // Dependencies
 import React from 'react';
 import './styles/App.css';
-import logo from './platzi.webp';
+// import logo from './platzi.webp';
 
 // Components
 import { TodoCounter } from './components/TodoCounter/TodoCounter';
@@ -16,6 +16,7 @@ const defaultToDos = [
   { id: 1,text: 'Walk the dogs', completed: false },
   { id: 2,text: 'Prepare lunch', completed: false },
   { id: 3,text: 'Lorem ipsum', completed: true },
+  { id: 4,text: 'Lo rem ip sum', completed: false },
 ];
 
 // Component: App
@@ -28,20 +29,37 @@ function App() {
   // stateUpdater is a function and must be used like so: stateUpdater(NEW_STATE_VALUE)
   // On the right side, we call the function React.useState(initalState), inside () declare what the inital state value should be
   // State can ONLY be shared from parent to children. That is why we moved the searchValue state from TodoSearch Component to to the App Component    
+  
+  // State for todos
+  const [todos, setTodos] = React.useState(defaultToDos);
+  
+  // State for search
   const [searchValue, setsearchValue] = React.useState('');
   console.log('stored searchValue: ' + searchValue);
 
-  // State for todos
-  const [todos, setTodos] = React.useState(defaultToDos);
-
-  // Derivative States (based on an actual state, the one that uses React.useState(), 
-  // derivative states do some calculations or other manipulations to pass the value to children components)
+  //==============  
+  // React Derived States
+  //==============
+  // Derived States (based on an actual state, the one that uses React.useState(), 
+  // derivative states do some calculations, filtering or other manipulations to pass the value to children components)
   // .filter() Array method
+  
+  // Derived State: Used for TodoCounter
   const completedTodos = todos.filter(
     todo => todo.completed
     // Another way: todo => !!todo.completed // with the double negation !! it converts all to boolean values
   ).length; 
   const totalTodos = todos.length;
+
+  // Derived State: Used for TodoSearch
+  const searchedTodos = todos.filter(
+    (todo) => {
+      const todoText = todo.text.toLowerCase();
+      const searchText = searchValue.toLowerCase();
+      
+      return todoText.includes(searchText);
+    }
+  );
 
   return (
     // React MUST wrap all components in a single return. You can use <div className="">COMPONENTS</div>
@@ -65,7 +83,8 @@ function App() {
           This will allow to render a TodoItem Components for every element in the original Array. 
           */}
           {/* We can use an arrow function to render each Component */}
-          {defaultToDos.map(todo =>
+          {/* Now we are using a derived state (searchedTodos) to render Todos that match the search query */}
+          {searchedTodos.map(todo =>
             <TodoItem 
               key={todo.id} // Each child in a list must have a unique key
               text={todo.text}
