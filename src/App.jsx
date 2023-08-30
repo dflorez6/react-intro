@@ -55,11 +55,30 @@ function App() {
   const searchedTodos = todos.filter(
     (todo) => {
       const todoText = todo.text.toLowerCase();
-      const searchText = searchValue.toLowerCase();
-      
+      const searchText = searchValue.toLowerCase();      
       return todoText.includes(searchText);
     }
   );
+
+  // Derived State: Used for marking TODOs as completed
+  const completeTodo = (id) => {
+    const newTodos = [...todos]; // Using spread operator to get a copy of all TODOs up to this point
+    const todIndex = newTodos.findIndex(
+      (todo) => todo.id === id
+    );
+    newTodos[todIndex].completed = true;
+    setTodos(newTodos); // Updating TODOs State
+  };
+
+  // Derived State: Used for deleting TODOs
+  const deleteTodo = (id) => {
+    const newTodos = [...todos]; // Using spread operator to get a copy of all TODOs up to this point
+    const todIndex = newTodos.findIndex(
+      (todo) => todo.id === id
+    );
+    newTodos.splice(todIndex, 1); // Array Method Splice -> Used to remove 1 element from the array
+    setTodos(newTodos); // Updating TODOs State
+  };
 
   return (
     // React MUST wrap all components in a single return. You can use <div className="">COMPONENTS</div>
@@ -89,6 +108,8 @@ function App() {
               key={todo.id} // Each child in a list must have a unique key
               text={todo.text}
               completed={todo.completed}
+              onComplete={() => completeTodo(todo.id)} // Must encapsulate completeTodo() function inside another function
+              onDelete={() => deleteTodo(todo.id)}
             /> 
           )}
         </TodoList>

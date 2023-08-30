@@ -11,14 +11,20 @@ function TodoItem(props) {
       <li className='todo-item'>
         {/* Use {` `} to make conditional classes */}
         {/* Using JS interpolation ${} with a ternary operator ${condition && 'className' IF AND ONLY IF condition is True}. */}
-        <span className={`todo-item-check ${props.completed && 'todo-item-check-active'}`}> 
+        <span 
+          className={`todo-item-check ${props.completed && 'todo-item-check-active'}`}
+          onClick={props.onComplete}
+        > 
           V
         </span>
         {/* Another way of using ternary operator */}
         <p className={`todo-item-content ${props.completed ? 'todo-item-content-complete' : ''}`}>
           {props.text}
         </p>
-        <span className='todo-item-delete'>
+        <span 
+          className='todo-item-delete'
+          onClick={props.onDelete}
+        >
           X
         </span>
       </li>
